@@ -6,6 +6,18 @@
 
 📈 Real-time market data access
 
+
+🔍 Stock tracking
+
+📊 Portfolio management tools
+
+⚡ Fast and scalable architecture (React + Flask)
+
+### 🛠️ Tech Stack
+
+Frontend: React, Vite, CSS, HTML
+=======
+
 🔍 Stock tracking
 
 📊 Portfolio management tools
