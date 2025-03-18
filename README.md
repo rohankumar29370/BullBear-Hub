@@ -15,4 +15,3 @@
 ### 🛠️ Tech Stack
 
 Frontend: React, Vite, CSS, HTML
-
