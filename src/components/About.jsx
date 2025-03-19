@@ -1,7 +1,6 @@
-import '../../styles/about.css';
-import Author from '../author/Author.jsx';
-import usrimg from '../../assets/defaultUserpic.jpg';
-import AboutUsCard from '../about/AboutUsCard.jsx';
+import '../styles/about.css';
+import usrimg from '../assets/defaultUserpic.jpg';
+import AboutUsCard from './AboutUsCard.jsx';
 
 const About= ({setUserInParentComponent}) => {
 
