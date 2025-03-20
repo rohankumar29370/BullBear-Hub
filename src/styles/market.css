@@ -1,0 +1,78 @@
+.market-container {
+    max-width: 700px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.market-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.market-table th, .market-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.market-table th {
+    background-color: #123e70;
+    color: white;
+}
+
+.market-table input[type="number"] {
+    width: 70px;
+    padding: 5px;
+    text-align: center;
+}
+
+.market-table input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; 
+    align-items: center; 
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 45px; 
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background-color: #123e70;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
