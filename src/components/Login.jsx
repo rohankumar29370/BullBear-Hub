@@ -1,45 +1,48 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/login.css';
 
+const Login = ({ setUserInParentComponent }) => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-const Login = ({setUserInParentComponent}) =>{
+    const login = (event) => {
+        event.preventDefault();
+        if (username === "admin" && password === "admin") {
+            setUserInParentComponent(prevState => ({
+                ...prevState,
+                user: username,
+                isLoggedIn: true
+            }));
+        } else {
+            toast.error("Login failed. Invalid credentials.", { autoClose: 3000 });
+        }
+    };
 
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
+    return (
+        <div className="login-body">
+            {/* Video Background */}
+            <video autoPlay muted loop className="background-video">
+                <source src="/background.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
 
-const login = (event)  =>{
-    event.preventDefault();
-    if (username === "admin" && password === "admin"){
-        setUserInParentComponent(prevState => ({
-            ...prevState,
-            user: username,
-            isLoggedIn: true
-        }));
-    }else{
-        toast.error("Login failed", {autoClose: false});
+            <div className="signin-container">
+                <h1>Sign In</h1>
+                <form onSubmit={login}>
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter Username" value={username} onChange={(e) => setUsername(e.target.value)} />
 
-    }
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-    // console.log(username); checking if states are updated correctly.
-    // console.log(password);
-}
-
-    return(
-    <div className= "signin-body">
-        <div className="signin-container">
-            <h1>Sign in</h1>
-            <form onSubmit={login}>
-                <label>Username</label>
-                <input type="text" id="Email" name="Email" onChange={(event)=> setUsername(event.target.value)}/>
-                <label>Password</label>
-                <input type="password" id="Password" name="Password"  onChange={(event)=> setPassword(event.target.value)}/>
-                <input type="submit" value="Sign in" />
-            </form>
-        </div>
-        <ToastContainer />
+                    <input type="submit" value="Sign In" />
+                </form>
+            </div>
+            <ToastContainer />
         </div>
     );
-}
+};
 
 export default Login;
