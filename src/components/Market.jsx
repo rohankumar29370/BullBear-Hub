@@ -20,46 +20,52 @@ const Market = () => {
         setStocks(newStocks);
     };
 
-
     return (
-        <div className="market-container">
-            <h2>The Market</h2>
-            <table className="market-table">
-                <thead>
-                    <tr>
-                        <th>Stock Ticker</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Select</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {stocks.map((stock, index) => (
-                        <tr key={index}>
-                            <td>{stock.ticker}</td>
-                            <td>${stock.price}</td>
-                            <td>
-                                <input 
-                                    type="number" 
-                                    min="1" 
-                                    value={stock.quantity || ''} 
-                                    onChange={(e) => handleQuantityChange(index, e.target.value)} 
-                                />
-                            </td>
-                            <td>
-                                <input 
-                                    type="checkbox" 
-                                    checked={stock.selected} 
-                                    onChange={() => handleCheckboxChange(index)} 
-                                />
-                            </td>
+        <div className="market-body">
+            {/* Floating Glassmorphic Shapes */}
+            <div className="floating-shape"></div>
+            <div className="floating-shape"></div>
+            <div className="floating-shape"></div>
+
+            <div className="market-container">
+                <h2>The Market</h2>
+                <table className="market-table">
+                    <thead>
+                        <tr>
+                            <th>Stock Ticker</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Select</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div className="button-container">
-                <button className="btn btn-primary">Submit Purchase Order</button>
-                <button className="btn btn-secondary">Clear</button>
+                    </thead>
+                    <tbody>
+                        {stocks.map((stock, index) => (
+                            <tr key={index}>
+                                <td>{stock.ticker}</td>
+                                <td>${stock.price}</td>
+                                <td>
+                                    <input 
+                                        type="number" 
+                                        min="1" 
+                                        value={stock.quantity || ''} 
+                                        onChange={(e) => handleQuantityChange(index, e.target.value)} 
+                                    />
+                                </td>
+                                <td>
+                                    <input 
+                                        type="checkbox" 
+                                        checked={stock.selected} 
+                                        onChange={() => handleCheckboxChange(index)} 
+                                    />
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <div className="button-container">
+                    <button className="btn btn-primary">Submit Purchase Order</button>
+                    <button className="btn btn-secondary">Clear</button>
+                </div>
             </div>
         </div>
     );

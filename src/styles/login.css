@@ -1,49 +1,122 @@
-.signin-body{
+/* 📌 1. Background Video (Blurrier for Softer Look) */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.75; /* Slightly lower opacity */
+    filter: blur(6px); /* Increased blur effect */
+}
+
+/* 📌 2. Login Page Layout */
+.login-body {
     display: flex;
-    flex-direction :row;
     justify-content: center;
-    
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
-
+/* 📌 3. Glassmorphic Login Box (Brighter & More Readable) */
 .signin-container {
-    background-color: #f8f9fa;;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    height: auto;
-    margin-top: 20vh;
+    background: rgba(255, 255, 255, 0.65); /* Brighter for better contrast */
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    width: 420px;
     text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+/* 📌 4. Login Box Hover Effect */
+.signin-container:hover {
+    box-shadow: 0 12px 45px rgba(0, 82, 255, 0.4);
+    transform: scale(1.03);
 }
 
+/* 📌 5. Sign In Heading */
+.signin-container h1 {
+    font-size: 28px;
+    color: #222; /* Darker text for contrast */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* 📌 6. Form Labels (Bigger & More Readable) */
 label {
-    margin-top: 10px;
+    display: block;
+    font-size: 20px;
+    color: #333; /* Darker for better visibility */
     text-align: left;
+    margin-top: 15px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
 }
 
+/* 📌 7. Input Fields */
 input {
-    padding: 10px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 16px;
     margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    transition: all 0.3s ease;
 }
 
+/* 📌 8. Input Placeholder Styling */
+input::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* 📌 9. Input Focus Effect */
+input:focus {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 18px rgba(0, 82, 255, 0.5);
+    transform: scale(1.04);
+}
+
+/* 📌 10. Submit Button */
 input[type="submit"] {
-    background-color: #007bff;
+    background: linear-gradient(135deg, #007bff, #003ecb);
     color: white;
     border: none;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 16px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 6px 18px rgba(0, 82, 255, 0.5);
+    margin-top: 20px;
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
+/* 📌 11. Button Hover Effect */
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #003ecb, #001f3f);
+    transform: scale(1.06);
+    box-shadow: 0 8px 22px rgba(0, 82, 255, 0.7);
+}
+
+/* 📌 12. Animated Floating Glow Effect */
+@keyframes glowAnimation {
+    0% { box-shadow: 0 0 12px rgba(0, 82, 255, 0.4); }
+    50% { box-shadow: 0 0 22px rgba(0, 82, 255, 0.7); }
+    100% { box-shadow: 0 0 12px rgba(0, 82, 255, 0.4); }
+}
+input[type="submit"]:focus {
+    animation: glowAnimation 1.5s infinite alternate;
 }
