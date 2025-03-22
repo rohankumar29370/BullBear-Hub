@@ -1,55 +1,44 @@
 import '../styles/about.css';
 import usrimg from '../assets/defaultUserpic.jpg';
 import AboutUsCard from './AboutUsCard.jsx';
+import { useEffect } from 'react';
 
-const About= ({setUserInParentComponent}) => {
+const About = () => {
+    useEffect(() => {
+        const handleMouseMove = (event) => {
+            const floatingShapes = document.querySelectorAll(".floating-shape");
 
-    const handleLogout = (event) =>{
-        event.preventDefault();
-        setUserInParentComponent(prevState => ({
-            ...prevState,
-            isLoggedIn: false
-        }));
-    };
+            const { clientX: x, clientY: y } = event;
 
-    return (<div>        <h1 className='about-us-title'>About us</h1>
+            floatingShapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.02;
+                shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        };
 
-        <div className="cards-container">
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, []);
 
-            <AboutUsCard
-                    imageSrc={usrimg}
-                    cardTitle="Tuan Vo"
-                    cardText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    buttonText="Learn more"
-                    buttonLink="https://www.linkedin.com"
-                />
-            <AboutUsCard
-                    imageSrc={usrimg}
-                    cardTitle="Fnu Rohan"
-                    cardText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    buttonText="Learn more"
-                    buttonLink="https://www.linkedin.com"
-                />
-            <AboutUsCard
-                    imageSrc={usrimg}
-                    cardTitle="Taraq Pradhumna Kosaraju "
-                    cardText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    buttonText="Learn more"
-                    buttonLink="https://www.linkedin.com"
-                />
-            <AboutUsCard
-                    imageSrc={usrimg}
-                    cardTitle="Jovita Perpetual Mendonca"
-                    cardText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                    buttonText="Learn more"
-                    buttonLink="https://www.linkedin.com"
-                />
+    return (
+        <div className="about-us-body">
+            {/* Floating Glassmorphic Shapes */}
+            <div className="floating-shape"></div>
+            <div className="floating-shape"></div>
+            <div className="floating-shape"></div>
+
+            <h1 className="about-us-title">About Us</h1>
+
+            <div className="cards-container">
+                <AboutUsCard imageSrc={usrimg} cardTitle="Tuan Vo" cardText="Lead Developer with expertise in AI and blockchain technology." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
+                <AboutUsCard imageSrc={usrimg} cardTitle="Fnu Rohan" cardText="Financial Analyst with a strong background in crypto markets." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
+                <AboutUsCard imageSrc={usrimg} cardTitle="Taraq Pradhumna Kosaraju" cardText="Blockchain Engineer with years of experience in DeFi applications." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
+                <AboutUsCard imageSrc={usrimg} cardTitle="Jovita Perpetual Mendonca" cardText="Innovative strategist with expertise in financial modeling and risk assessment." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
             </div>
-
         </div>
-    
     );
-
 }
 
 export default About;
