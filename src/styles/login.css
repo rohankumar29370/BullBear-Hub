@@ -80,12 +80,30 @@ input::placeholder {
     color: rgba(0, 0, 0, 0.6);
 }
 
-/* 📌 9. Input Focus Effect */
+/* 📌 9. Input Focus Effect - Animated Border Glow */
 input:focus {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 18px rgba(0, 82, 255, 0.5);
+    border: 2px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(135deg, #007bff, #00ffcc);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: borderGlow 2s linear infinite;
     transform: scale(1.04);
-}
+    box-shadow: 0 0 18px rgba(0, 82, 255, 0.5);
+  }
+  
+  @keyframes borderGlow {
+    0% {
+      background-image: linear-gradient(white, white), linear-gradient(135deg, #007bff, #00ffcc);
+    }
+    50% {
+      background-image: linear-gradient(white, white), linear-gradient(135deg, #003ecb, #00ffcc);
+    }
+    100% {
+      background-image: linear-gradient(white, white), linear-gradient(135deg, #007bff, #00ffcc);
+    }
+  }
+  
+
 
 /* 📌 10. Submit Button */
 input[type="submit"] {
@@ -119,4 +137,28 @@ input[type="submit"]:hover {
 }
 input[type="submit"]:focus {
     animation: glowAnimation 1.5s infinite alternate;
+}
+
+
+/* 📌 Password Container */
+.password-input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* 📌 Eye Icon Styling */
+.eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
