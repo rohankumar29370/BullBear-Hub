@@ -10,7 +10,7 @@ const Market = () => {
 
     const handleQuantityChange = (index, value) => {
         const newStocks = [...stocks];
-        newStocks[index].quantity = value;
+        newStocks[index].quantity = Number(value) || 0; // Ensure numeric value
         setStocks(newStocks);
     };
 
@@ -23,9 +23,9 @@ const Market = () => {
     return (
         <div className="market-body">
             {/* Floating Glassmorphic Shapes */}
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
-            <div className="floating-shape"></div>
+            {[...Array(3)].map((_, i) => (
+                <div key={i} className="floating-shape"></div>
+            ))}
 
             <div className="market-container">
                 <h2>The Market</h2>
@@ -47,7 +47,7 @@ const Market = () => {
                                     <input 
                                         type="number" 
                                         min="1" 
-                                        value={stock.quantity || ''} 
+                                        value={stock.quantity > 0 ? stock.quantity : ''} 
                                         onChange={(e) => handleQuantityChange(index, e.target.value)} 
                                     />
                                 </td>
