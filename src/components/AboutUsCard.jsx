@@ -2,28 +2,22 @@ import React from 'react';
 import '../styles/about.css'; 
 
 
-const AboutUsCard = ({
-    imageSrc,    // URL for the card image
-    cardTitle,   // Title of the card
-    cardText,    // Text body for the card
-    buttonText,  // Text for the button
-    buttonLink,  // URL for the button link
-  }) => {
+const AboutUsCard = (props) => {
     return (
         <div className="card" style={{ width: '18rem' }}>
         <img
           className="card-img-top"
-          src={imageSrc}
+          src={props.imageSrc}
           alt="Card image cap"
         />
   
         <div className="card-body">
-          <h5 className="card-title">{cardTitle}</h5>
+          <h5 className="card-title">{props.cardTitle}</h5>
           <p className="card-text">
-            {cardText}
+            {props.cardText}
           </p>
-          <a href={buttonLink} className="btn-primary">
-            {buttonText}
+          <a href={props.buttonLink} className="btn-primary">
+            {props.buttonText}
           </a>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import '../styles/about.css';
-import usrimg from '../assets/defaultUserpic.jpg';
 import AboutUsCard from './AboutUsCard.jsx';
 import { useEffect } from 'react';
+import contacts from '../assets/contacts.js';
 
 const About = () => {
     useEffect(() => {
@@ -22,6 +22,16 @@ const About = () => {
         };
     }, []);
 
+    function createCard(contact){
+        return <AboutUsCard 
+         key = {contact.id}
+         imageSrc = {contact.imageSrc}
+         cardTitle = {contact.cardTitle}
+         cardText = {contact.cardText} 
+         buttonText = {contact.buttonText} 
+         buttonLink = {contact.buttonLink} />
+    }
+
     return (
         <div className="about-us-body">
             {/* Floating Glassmorphic Shapes */}
@@ -32,10 +42,8 @@ const About = () => {
             <h1 className="about-us-title">About Us</h1>
 
             <div className="cards-container">
-                <AboutUsCard imageSrc={usrimg} cardTitle="Tuan Vo" cardText="Lead Developer with expertise in AI and blockchain technology." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
-                <AboutUsCard imageSrc={usrimg} cardTitle="Fnu Rohan" cardText="Financial Analyst with a strong background in crypto markets." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
-                <AboutUsCard imageSrc={usrimg} cardTitle="Taraq Pradhumna Kosaraju" cardText="Blockchain Engineer with years of experience in DeFi applications." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
-                <AboutUsCard imageSrc={usrimg} cardTitle="Jovita Perpetual Mendonca" cardText="Innovative strategist with expertise in financial modeling and risk assessment." buttonText="Learn More" buttonLink="https://www.linkedin.com" />
+                {/* Map function to create cards for each contact */ }
+                {contacts.map(createCard)} 
             </div>
         </div>
     );
