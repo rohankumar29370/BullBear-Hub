@@ -19,9 +19,9 @@ const About = () => {
             <h1 className="about-us-title">About Us</h1>
             <div className="feature-divider"></div>
             <p className="about-us-subtitle">
-                At BullBear Hub, we empower investors with smart tools to build and manage successful investment portfolios. Our platform combines data-driven insights with intuitive features, helping users make informed decisions in dynamic financial markets. Whether you're a seasoned investor or just starting out, BullBear Hub is your trusted partner for achieving financial growth.
+            At BullBear Hub, we empower investors with smart tools to build and manage successful portfolios. Our platform combines data-driven insights with intuitive features to help users navigate financial markets and make informed decisions. Whether you're a seasoned investor or just starting out, BullBear Hub is your trusted partner for growth.
                 <br/><br/>
-                Behind our platform is a dedicated team of experts committed to guiding you on your investment journey. Meet the team driving innovation and helping you succeed.
+                Behind it all is a team of experts committed to innovation, clarity, and your success. Meet the people turning vision into impact.
             </p>
             <h2 className="section-title">Who We Are</h2>
 

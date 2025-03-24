@@ -47,11 +47,13 @@ const Market = () => {
                                 />
                             </td>
                             <td>
+                                <div className = "checkbox-wrapper">
                                 <input 
                                     type="checkbox" 
                                     checked={stock.selected} 
                                     onChange={() => handleCheckboxChange(index)} 
                                 />
+                                </div>
                             </td>
                         </tr>
                     ))}
