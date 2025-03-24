@@ -23,7 +23,7 @@ const Market = () => {
 
     return (
         <div className="market-body">
-            <h1 className="market-title">The Market</h1>
+            <h1 className="market-title">Available Stock Options</h1>
             <table className="market-table">
                 <thead>
                     <tr>
