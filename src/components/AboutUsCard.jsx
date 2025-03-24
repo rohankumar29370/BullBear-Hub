@@ -13,10 +13,11 @@ const AboutUsCard = (props) => {
   
         <div className="card-body">
           <h5 className="card-title">{props.cardTitle}</h5>
+          <h7 className="card-designation">{props.cardDesignation}</h7>
           <p className="card-text">
             {props.cardText}
           </p>
-          <a href={props.buttonLink} className="btn-primary">
+          <a href={props.buttonLink} className="btn-primary-about">
             {props.buttonText}
           </a>
         </div>
