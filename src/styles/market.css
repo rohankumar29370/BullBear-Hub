@@ -46,13 +46,50 @@
 
 .market-table input[type="checkbox"] {
   transform: scale(1.2);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  font-size: 16px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
 }
 
 .button-container {
   display: flex;
-  gap: 10px; 
+  gap: 20px; 
   align-items: center; 
 }
+
+.btn-market-submit {
+  /*background: linear-gradient(135deg, #003ecb, #0052ff);*/
+  background: #F0F8FF;
+  border: 1px solid #00538C;
+  padding: 14px 24px;
+  border-radius: 10px;
+  color: rgb(0, 34, 68);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 1px rgba(0, 82, 255, 0.4);
+  cursor: pointer;
+  margin-top: auto;
+  width: fit-content;
+  align-self: center;
+}
+
+.btn-market-submit:hover {
+  background: linear-gradient(135deg, #013d7d, #00538C);
+  box-shadow: 0 1px 1px rgba(0, 82, 255, 0.6);
+  transform: scale(1.07);
+  color: white;
+}
+
 
 .btn {
   padding: 10px 15px;
@@ -68,20 +105,28 @@
   margin-top: 15px;
 }
 
-.btn-primary {
-  background-color: #123e70;
-  color: white;
-}
 
 .btn-secondary {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
+  background: #F0F8FF;
+  border: 1px solid #494f52;
+  padding: 14px 24px;
+  border-radius: 10px;
+  color: rgb(0, 34, 68);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 1px rgba(0, 82, 255, 0.4);
+  cursor: pointer;
+  margin-top: auto;
+  width: fit-content;
+  align-self: center;
 }
 
 .btn-secondary:hover {
-  background-color: #545b62;
+  background-color: #6c757d;
+  color: white;
+  transform: scale(1.12);
 }

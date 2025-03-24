@@ -58,7 +58,7 @@ const Market = () => {
                 </tbody>
             </table>
             <div className="button-container">
-                <button className="btn btn-primary">Submit Purchase Order</button>
+                <button className="btn btn-market-submit">Submit Purchase Order</button>
                 <button className="btn btn-secondary">Clear</button>
             </div>
         </div>
