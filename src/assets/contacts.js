@@ -1,12 +1,12 @@
-import usrimg from './defaultUserpic.jpg';
 import rohanImg from './Rohan.jpeg';
 import jovitaImg from './Jovita.jpeg';
 import tkImg from './TK.jpeg';
+import TuanImg from './Tuan.jpeg';
 
 const contacts = [
     {
         id : 1,
-        imageSrc: usrimg,
+        imageSrc: TuanImg,
         cardTitle : "Tuan Vo", 
         cardDesignation : "🧑‍💻 Financial Data & Backend Engineer",
         cardText : "Blends logic and finance to build the brains behind the app — crafting data pipelines and backend systems that turn numbers into portfolio insight.",
@@ -27,7 +27,7 @@ const contacts = [
         imageSrc: tkImg,
         cardTitle : "Taraq Pradhumna Kosaraju", 
         cardDesignation : "👨‍💻 Full Stack Developer",
-        cardText : "Connects the dots from front to back - building seamless features, clean architecture, and smart interactions that bring the portfolio experience to life.",
+        cardText : "Connects the dots from front to back — building seamless features, clean architecture, and smart interactions that shape the portfolio experience.",
         buttonText : "Learn More",
         buttonLink : "https://www.linkedin.com/in/taraq-pradhumna-kosaraju-03/"
     },
