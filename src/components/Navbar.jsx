@@ -9,9 +9,9 @@ return (<>
             <img src ={logo} alt ="App Logo" className="navbar-logo"/>
         </div>
         <div className='navbar-center'>
-            <Link to="/portfolio" className="navbar-link">Portfolio</Link>
-            <Link to="market" className="navbar-link">Market</Link>
-            <Link to="/about" className="navbar-link">About</Link>
+            <Link to="/portfolio" className="navbar-link">PORTFOLIO</Link>
+            <Link to="market" className="navbar-link">MARKET</Link>
+            <Link to="/about" className="navbar-link">ABOUT</Link>
         </div>
         <div className="navbar-right">
             <button onClick={() => handleLogout()} className ="navbar-button">Logout</button>

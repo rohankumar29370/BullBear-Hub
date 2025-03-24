@@ -1,13 +1,23 @@
-
 /* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #333;
-    color: white;
+    padding: 8px 20px;
+    background-color: #F0F8FF;
+    color: #003ecb;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    /* Make Navbar Fixed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+body {
+    padding-top: 60px; /* Adjust according to navbar height */
 }
 
 .navbar-left .navbar-logo {
@@ -24,7 +34,7 @@
 
 .navbar-link {
     text-decoration: none;
-    color: white;
+    color: #00538C;
     margin: 0 15px;
     font-size: 18px;
     transition: color 0.3s ease;
@@ -42,7 +52,7 @@
 
 .navbar-button {
     padding: 10px 20px;
-    background-color: #ff5722;
+    background-color: #007FFF;
     color: white;
     border: none;
     border-radius: 5px;
@@ -52,7 +62,7 @@
 }
 
 .navbar-button:hover {
-    background-color: #e64a19;
+    background-color: #00bcd4;
 }
 
 @media (max-width: 768px) {

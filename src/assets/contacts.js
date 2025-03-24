@@ -1,37 +1,44 @@
 import usrimg from './defaultUserpic.jpg';
+import rohanImg from './Rohan.jpeg';
+import jovitaImg from './Jovita.jpeg';
+import tkImg from './TK.jpeg';
 
 const contacts = [
     {
         id : 1,
         imageSrc: usrimg,
         cardTitle : "Tuan Vo", 
-        cardText : "Lead Developer with expertise in AI and blockchain technology.",
+        cardDesignation : "🧑‍💻 Financial Data & Backend Engineer",
+        cardText : "Blends logic and finance to build the brains behind the app — crafting data pipelines and backend systems that turn numbers into portfolio insight.",
         buttonText : "Learn More",
-        buttonLink: "https://www.linkedin.com"
+        buttonLink: "https://www.linkedin.com/in/tuan-vo-575140221/"
     }, 
     {
         id :2,
-        imageSrc: usrimg,
-        cardTitle:"Fnu Rohan", 
-        cardText : "Financial Analyst with a strong background in crypto markets." ,
+        imageSrc: rohanImg,
+        cardTitle:"Rohan Kumar", 
+        cardDesignation : "💼 Co-founder & Financial Analyst",
+        cardText : "Bridges market thinking with product flow — shaping return models, investment logic, and insights that give real meaning to every portfolio decision." ,
         buttonText :"Learn More",
-         buttonLink : "https://www.linkedin.com",
+        buttonLink : "https://www.linkedin.com/in/rohaniba/",
     },
     {
         id :3,
-        imageSrc: usrimg,
+        imageSrc: tkImg,
         cardTitle : "Taraq Pradhumna Kosaraju", 
-        cardText : "Full Stack Developer driven by a passion for AI and building smart, scalable web applications. Skilled in both frontend and backend technologies, Taraq brings innovative thinking and technical expertise to every project.",
-         buttonText : "Learn More",
-          buttonLink : "https://www.linkedin.com"
+        cardDesignation : "👨‍💻 Full Stack Developer",
+        cardText : "Connects the dots from front to back - building seamless features, clean architecture, and smart interactions that bring the portfolio experience to life.",
+        buttonText : "Learn More",
+        buttonLink : "https://www.linkedin.com/in/taraq-pradhumna-kosaraju-03/"
     },
     {
         id :4,
-        imageSrc: usrimg,
+        imageSrc: jovitaImg,
         cardTitle : "Jovita Perpetual Mendonca", 
-        cardText : "Innovative strategist with expertise in financial modeling and risk assessment.",
-         buttonText : "Learn More",
-          buttonLink : "https://www.linkedin.com"
+        cardDesignation : "🧑‍🎨 UI/UX Designer",
+        cardText : "Shapes the story users see and feel — turning complex financial data into elegant, intuitive interfaces that make managing portfolios a breeze.",
+        buttonText : "Learn More",
+        buttonLink : "https://www.linkedin.com/in/jovita-mendonca-994922288/"
     }
 ];
 

@@ -10,7 +10,7 @@ const Market = () => {
 
     const handleQuantityChange = (index, value) => {
         const newStocks = [...stocks];
-        newStocks[index].quantity = Number(value) || 0; // Ensure numeric value
+        newStocks[index].quantity = value;
         setStocks(newStocks);
     };
 
@@ -20,52 +20,48 @@ const Market = () => {
         setStocks(newStocks);
     };
 
+
     return (
         <div className="market-body">
-            {/* Floating Glassmorphic Shapes */}
-            {[...Array(3)].map((_, i) => (
-                <div key={i} className="floating-shape"></div>
-            ))}
-
-            <div className="market-container">
-                <h2>The Market</h2>
-                <table className="market-table">
-                    <thead>
-                        <tr>
-                            <th>Stock Ticker</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Select</th>
+            <h1 className="market-title">Available Stock Options</h1>
+            <table className="market-table">
+                <thead>
+                    <tr>
+                        <th>Stock Ticker</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {stocks.map((stock, index) => (
+                        <tr key={index}>
+                            <td>{stock.ticker}</td>
+                            <td>${stock.price}</td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    min="1" 
+                                    value={stock.quantity || ''} 
+                                    onChange={(e) => handleQuantityChange(index, e.target.value)} 
+                                />
+                            </td>
+                            <td>
+                                <div className = "checkbox-wrapper">
+                                <input 
+                                    type="checkbox" 
+                                    checked={stock.selected} 
+                                    onChange={() => handleCheckboxChange(index)} 
+                                />
+                                </div>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {stocks.map((stock, index) => (
-                            <tr key={index}>
-                                <td>{stock.ticker}</td>
-                                <td>${stock.price}</td>
-                                <td>
-                                    <input 
-                                        type="number" 
-                                        min="1" 
-                                        value={stock.quantity > 0 ? stock.quantity : ''} 
-                                        onChange={(e) => handleQuantityChange(index, e.target.value)} 
-                                    />
-                                </td>
-                                <td>
-                                    <input 
-                                        type="checkbox" 
-                                        checked={stock.selected} 
-                                        onChange={() => handleCheckboxChange(index)} 
-                                    />
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <div className="button-container">
-                    <button className="btn btn-primary">Submit Purchase Order</button>
-                    <button className="btn btn-secondary">Clear</button>
-                </div>
+                    ))}
+                </tbody>
+            </table>
+            <div className="button-container">
+                <button className="btn btn-market-submit">Submit Purchase Order</button>
+                <button className="btn btn-secondary">Clear</button>
             </div>
         </div>
     );
