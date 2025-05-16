@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import portfolio from './PortfolioData';
-import './Portfolio.css';
+import portfolio from '../assets/PortfolioData.js';
+import '../styles/Portfolio.css';
 import History from './History';
 import Rebalance from './Rebalance';
 import Sectors from './Sectors';
