@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 
-const Login = ({ setUserInParentComponent }) => {
+const Login = ({ setUser }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
@@ -15,15 +17,24 @@ const Login = ({ setUserInParentComponent }) => {
 
     const login = (event) => {
         event.preventDefault();
-        if (username === "admin" && password === "admin") {
-            setUserInParentComponent(prevState => ({
-                ...prevState,
-                user: username,
-                isLoggedIn: true
-            }));
-        } else {
-            toast.error("Login failed. Invalid credentials.", { autoClose: 3000 });
-        }
+        const base_url = 'http://127.0.0.1:5000'
+        const url = `${base_url}/user/authenticate-user/${username}/${password}`
+        fetch(url).then(res=>{
+            if(!res.ok){
+                toast.error("Login failed. Invalid credentials.", { autoClose: false });
+            }
+            res.json().then(data=>{
+                setUser((prevState)=>({
+                    ...prevState,
+                    user: data.username,
+                    userId: data.id,
+                    isLoggedIn: true
+                }));
+                navigate('/home');   //redirects to home page after login
+            })
+        }).catch((error) =>{
+             toast.error(`Failed to authenticate user ${username}: ${error}`)
+        });
     };
 
     return (
