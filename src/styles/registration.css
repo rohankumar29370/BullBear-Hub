@@ -1,4 +1,4 @@
-/* 📌 1. Background Video (Blurrier for Softer Look) */
+/* 📌 1. Background Video */
 .background-video {
     position: fixed;
     top: 0;
@@ -7,11 +7,11 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    opacity: 0.75; /* Slightly lower opacity */
-    filter: blur(6px); /* Increased blur effect */
+    opacity: 0.75;
+    filter: blur(6px);
 }
 
-/* 📌 2. Login Page Layout */
+/* 📌 2. Registration Page Layout */
 .login-body {
     display: flex;
     justify-content: center;
@@ -21,9 +21,9 @@
     overflow: hidden;
 }
 
-/* 📌 3. Glassmorphic Login Box (Brighter & More Readable) */
+/* 📌 3. Glassmorphic Registration Box */
 .signin-container {
-    background: rgba(255, 255, 255, 0.65); /* Brighter for better contrast */
+    background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(20px);
     padding: 50px;
     border-radius: 20px;
@@ -36,25 +36,25 @@
     transition: all 0.3s ease-in-out;
 }
 
-/* 📌 4. Login Box Hover Effect */
+/* 📌 4. Registration Box Hover Effect */
 .signin-container:hover {
     box-shadow: 0 12px 45px rgba(0, 82, 255, 0.4);
     transform: scale(1.03);
 }
 
-/* 📌 5. Sign In Heading */
+/* 📌 5. Sign Up Heading */
 .signin-container h1 {
     font-size: 28px;
-    color: #222; /* Darker text for contrast */
+    color: #222;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-/* 📌 6. Form Labels (Bigger & More Readable) */
+/* 📌 6. Form Labels */
 label {
     display: block;
     font-size: 20px;
-    color: #333; /* Darker for better visibility */
+    color: #333;
     text-align: left;
     margin-top: 15px;
     font-weight: 700;
@@ -75,12 +75,12 @@ input {
     transition: all 0.3s ease;
 }
 
-/* 📌 8. Input Placeholder Styling */
+/* 📌 8. Input Placeholder */
 input::placeholder {
     color: rgba(0, 0, 0, 0.6);
 }
 
-/* 📌 9. Input Focus Effect - Animated Border Glow */
+/* 📌 9. Input Focus Effect */
 input:focus {
     border: 2px solid transparent;
     background-image: linear-gradient(white, white), linear-gradient(135deg, #007bff, #00ffcc);
@@ -127,7 +127,7 @@ input[type="submit"]:hover {
     box-shadow: 0 8px 22px rgba(0, 82, 255, 0.7);
 }
 
-/* 📌 12. Animated Floating Glow Effect */
+/* 📌 12. Button Focus Animation */
 @keyframes glowAnimation {
     0% { box-shadow: 0 0 12px rgba(0, 82, 255, 0.4); }
     50% { box-shadow: 0 0 22px rgba(0, 82, 255, 0.7); }
@@ -138,13 +138,13 @@ input[type="submit"]:focus {
     animation: glowAnimation 1.5s infinite alternate;
 }
 
-/* 📌 Password Container */
+/* 📌 13. Password Container */
 .password-input-container {
     position: relative;
     width: 100%;
 }
 
-/* 📌 Eye Icon Styling */
+/* 📌 14. Eye Icon */
 .eye-icon {
     position: absolute;
     top: 50%;
@@ -161,7 +161,7 @@ input[type="submit"]:focus {
     height: 100%;
 }
 
-/* 📌 Switch Form Link */
+/* 📌 15. Switch Form Link */
 .switch-form {
     text-align: center;
     margin-top: 20px;
@@ -180,18 +180,16 @@ input[type="submit"]:focus {
     text-decoration: underline;
 }
 
-/* Loading state styles */
+/* 📌 16. Loading State */
 .loading {
-    text-align: center;
-    color: #fff;
-    font-size: 1.2em;
-    margin-top: 20px;
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-/* Error message styles */
+/* 📌 17. Error Message */
 .error {
-    color: #ff4444;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 0.9em;
-}
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+} 

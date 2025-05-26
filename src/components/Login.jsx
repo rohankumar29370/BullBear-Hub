@@ -2,27 +2,55 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import '../styles/login.css';
 
-const Login = ({ setUserInParentComponent }) => {
+const Login = ({ setUser }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
 
-    const login = (event) => {
+    const login = async (event) => {
         event.preventDefault();
-        if (username === "admin" && password === "admin") {
-            setUserInParentComponent(prevState => ({
-                ...prevState,
-                user: username,
+        setIsLoading(true);
+        
+        try {
+            console.log('Attempting to login user:', username);
+            const base_url = 'http://127.0.0.1:5000';
+            const url = `${base_url}/user/authenticate-user/${username}/${password}`;
+            console.log('Login URL:', url);
+            
+            const response = await fetch(url);
+            console.log('Login response status:', response.status);
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || "Login failed. Invalid credentials.");
+            }
+            
+            const data = await response.json();
+            console.log('Login successful, user data:', data);
+            
+            setUser({
+                user: data.user.username,
+                userId: data.user.id,
+                balance: data.user.balance,
                 isLoggedIn: true
-            }));
-        } else {
-            toast.error("Login failed. Invalid credentials.", { autoClose: 3000 });
+            });
+            
+            console.log('User state updated, navigating to home');
+            navigate('/home');
+        } catch (error) {
+            console.error('Login error:', error);
+            toast.error(error.message || `Failed to authenticate user ${username}`);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -42,6 +70,7 @@ const Login = ({ setUserInParentComponent }) => {
                         placeholder="Enter Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        disabled={isLoading}
                     />
 
                     <label>Password</label>
@@ -51,14 +80,22 @@ const Login = ({ setUserInParentComponent }) => {
                             placeholder="Enter Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            disabled={isLoading}
                         />
                         <span className="eye-icon" onClick={togglePassword}>
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </span>
                     </div>
 
-                    <input type="submit" value="Sign In" />
+                    <input 
+                        type="submit" 
+                        value={isLoading ? "Signing in..." : "Sign In"} 
+                        disabled={isLoading}
+                    />
                 </form>
+                <p className="switch-form">
+                    Don't have an account? <a href="/register">Sign Up</a>
+                </p>
             </div>
             <ToastContainer />
         </div>
