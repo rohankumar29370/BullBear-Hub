@@ -9,32 +9,49 @@ const Login = ({ setUser }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const togglePassword = () => {
         setShowPassword(prev => !prev);
     };
 
-    const login = (event) => {
+    const login = async (event) => {
         event.preventDefault();
-        const base_url = 'http://127.0.0.1:5000'
-        const url = `${base_url}/user/authenticate-user/${username}/${password}`
-        fetch(url).then(res=>{
-            if(!res.ok){
-                toast.error("Login failed. Invalid credentials.", { autoClose: false });
+        setIsLoading(true);
+        
+        try {
+            console.log('Attempting to login user:', username);
+            const base_url = 'http://127.0.0.1:5000';
+            const url = `${base_url}/user/authenticate-user/${username}/${password}`;
+            console.log('Login URL:', url);
+            
+            const response = await fetch(url);
+            console.log('Login response status:', response.status);
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || "Login failed. Invalid credentials.");
             }
-            res.json().then(data=>{
-                setUser((prevState)=>({
-                    ...prevState,
-                    user: data.username,
-                    userId: data.id,
-                    isLoggedIn: true
-                }));
-                navigate('/home');   //redirects to home page after login
-            })
-        }).catch((error) =>{
-             toast.error(`Failed to authenticate user ${username}: ${error}`)
-        });
+            
+            const data = await response.json();
+            console.log('Login successful, user data:', data);
+            
+            setUser({
+                user: data.user.username,
+                userId: data.user.id,
+                balance: data.user.balance,
+                isLoggedIn: true
+            });
+            
+            console.log('User state updated, navigating to home');
+            navigate('/home');
+        } catch (error) {
+            console.error('Login error:', error);
+            toast.error(error.message || `Failed to authenticate user ${username}`);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -53,6 +70,7 @@ const Login = ({ setUser }) => {
                         placeholder="Enter Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        disabled={isLoading}
                     />
 
                     <label>Password</label>
@@ -62,14 +80,22 @@ const Login = ({ setUser }) => {
                             placeholder="Enter Password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            disabled={isLoading}
                         />
                         <span className="eye-icon" onClick={togglePassword}>
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </span>
                     </div>
 
-                    <input type="submit" value="Sign In" />
+                    <input 
+                        type="submit" 
+                        value={isLoading ? "Signing in..." : "Sign In"} 
+                        disabled={isLoading}
+                    />
                 </form>
+                <p className="switch-form">
+                    Don't have an account? <a href="/register">Sign Up</a>
+                </p>
             </div>
             <ToastContainer />
         </div>

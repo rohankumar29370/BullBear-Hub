@@ -1,0 +1,163 @@
+.portfolio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-table th,
+.portfolio-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.portfolio-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.portfolio-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.portfolio-table button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 8px;
+}
+
+.portfolio-table button:hover {
+    background-color: #0056b3;
+}
+
+.portfolio-table button.purchase-button {
+    background-color: #28a745;
+}
+
+.portfolio-table button.purchase-button:hover {
+    background-color: #218838;
+}
+
+.investments-container {
+    margin-top: 30px;
+}
+
+.investments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.investments-table th,
+.investments-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.investments-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.investments-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.investments-table button {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.investments-table button:hover {
+    background-color: #c82333;
+}
+
+.action-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 8px;
+    font-weight: 500;
+}
+
+.show-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.show-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    padding: 6px 12px !important;
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+    margin-right: 8px !important;
+    font-weight: 500 !important;
+}
+
+.delete-button:hover {
+    background-color: #c82333 !important;
+}
+
+.delete-button:disabled {
+    background-color: #dc354580 !important;
+    cursor: not-allowed !important;
+}
+
+.action-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p {
+    color: #6c757d;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.empty-state-icon {
+    font-size: 2rem;
+    color: #dee2e6;
+    margin-bottom: 15px;
+}
+
+.portfolio-container h1 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8rem;
+}
